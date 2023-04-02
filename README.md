@@ -1,6 +1,6 @@
 # urban-fortnight
-Just a test repo to better understand Git
 
+Just a test repo to better understand Git test
 
 ```mermaid
   graph TD;
@@ -9,8 +9,6 @@ Just a test repo to better understand Git
       B-->D;
       C-->D;
 ```
-
-
 
 ````
 ```mermaid
