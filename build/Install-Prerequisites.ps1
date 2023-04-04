@@ -55,7 +55,7 @@
                                         Code
 ############################################################################################>
 #Requires -Version 5.1
-#Requires -RunAsAdministrator
+<# #Requires -RunAsAdministrator #>
 
 #Region  [ Parameters ]
 
@@ -63,7 +63,7 @@
     param(
         [Parameter(Mandatory=$false, ParameterSetName = 'Install', ValueFromPipeline = $true)]
         [ValidateNotNullOrEmpty()]
-        [String[]]$Modules = @('ModuleBuilder', 'Pester', 'platyPS'),
+        [String[]]$Modules = @('PowerShellGet', 'ModuleBuilder', 'Pester', 'platyPS'),
 
         [Parameter(Mandatory=$false, ParameterSetName = 'Update')]
         [Switch]$Update,

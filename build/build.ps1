@@ -68,7 +68,7 @@
 
         [Parameter(Mandatory=$false)]
         [ValidateNotNullOrEmpty()]
-        [String]$Version
+        [String]$Version = '2.0.0'
     )
 
 #EndRegion  [ Parameters ]
@@ -85,11 +85,11 @@ $StartDate = Get-Date
 
 #Region     [ Main Code ]
 
-$RootPath1 = $PSScriptRoot | Split-Path | Split-Path
-$RootPath2 = $PSScriptRoot
+#$RootPath1 = $PSScriptRoot | Split-Path | Split-Path
+#$RootPath2 = $PSScriptRoot
 
-Set-Variable -Name Testrootpath1 -Value $RootPath1 -Scope Global -Force
-Set-Variable -Name Testrootpath2 -Value $RootPath2 -Scope Global -Force
+#Set-Variable -Name Testrootpath1 -Value $RootPath1 -Scope Global -Force
+#Set-Variable -Name Testrootpath2 -Value $RootPath2 -Scope Global -Force
 
 $params = @{
     SourcePath = $SourcePath
