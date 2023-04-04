@@ -63,7 +63,7 @@
     param(
         [Parameter(Mandatory=$false, ParameterSetName = 'Install', ValueFromPipeline = $true)]
         [ValidateNotNullOrEmpty()]
-        [String[]]$Modules = @('PowerShellGet', 'ModuleBuilder', 'Pester', 'platyPS'),
+        [String[]]$Modules = @('ModuleBuilder', 'Pester', 'platyPS'),
 
         [Parameter(Mandatory=$false, ParameterSetName = 'Update')]
         [Switch]$Update,
