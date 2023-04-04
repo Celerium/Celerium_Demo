@@ -1,0 +1,134 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  version: 2.0.0
+
+jobs:
+
+# Windows - nonCore
+
+  - job: Windows
+    pool:
+      vmImage: 'windows-latest'
+
+    steps:
+    - task: PowerShell@2
+      displayName: Install Prerequisites
+      name: InstallPrerequisites
+      inputs:
+        pwsh: false
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/Install-Prerequisites.ps1
+
+    - task: PowerShell@2
+      displayName: Build Module
+      name: modulebuilder
+      inputs:
+        pwsh: false
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/build/build.ps1
+        arguments: -version $(version)
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      name: publishartifact
+      inputs:
+        ArtifactName: module
+        PathtoPublish: $(Build.SourcesDirectory)/Output
+
+# Windows - Core
+
+  - job: WindowsPSCore
+    pool:
+      vmImage: 'windows-latest'
+
+    steps:
+    - task: PowerShell@2
+      displayName: Install Prerequisites
+      name: InstallPrerequisites
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/Install-Prerequisites.ps1
+
+    - task: PowerShell@2
+      displayName: Build Module
+      name: modulebuilder
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/build/build.ps1
+        arguments: -version $(version)
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      name: publishartifact
+      inputs:
+        ArtifactName: module
+        PathtoPublish: $(Build.SourcesDirectory)/Output
+
+# Linux - Ubuntu
+
+  - job: Ubuntu
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: PowerShell@2
+      displayName: Install Prerequisites
+      name: InstallPrerequisites
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/Install-Prerequisites.ps1
+
+    - task: PowerShell@2
+      displayName: Build Module
+      name: modulebuilder
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/build/build.ps1
+        arguments: -version $(version)
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      name: publishartifact
+      inputs:
+        ArtifactName: module
+        PathtoPublish: $(Build.SourcesDirectory)/Output
+
+# Linux - macOS
+
+  - job: macOS
+    pool:
+      vmImage: 'macOS-latest'
+
+    steps:
+    - task: PowerShell@2
+      displayName: Install Prerequisites
+      name: InstallPrerequisites
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/Install-Prerequisites.ps1
+
+    - task: PowerShell@2
+      displayName: Build Module
+      name: modulebuilder
+      inputs:
+        pwsh: true
+        targetType: filePath
+        filePath: $(Build.SourcesDirectory)/build/build.ps1
+        arguments: -version $(version)
+
+    - task: PublishBuildArtifacts@1
+      displayName: Publish Artifact
+      name: publishartifact
+      inputs:
+        ArtifactName: module
+        PathtoPublish: $(Build.SourcesDirectory)/Output
