@@ -91,6 +91,11 @@ $StartDate = Get-Date
 #Set-Variable -Name Testrootpath1 -Value $RootPath1 -Scope Global -Force
 #Set-Variable -Name Testrootpath2 -Value $RootPath2 -Scope Global -Force
 
+
+if ( $PSVersionTable.PSVersion.Major -eq '5' ){
+    $SourcePath = "$($PSScriptRoot | Split-Path)\Source\RocketCyberAPI.psd1"
+}
+
 $params = @{
     SourcePath = $SourcePath
     #CopyPaths = @("$PSScriptRoot\README.md", "$PSScriptRoot\Source\KpInfo.nuspec")
