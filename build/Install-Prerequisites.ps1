@@ -86,6 +86,7 @@ $StartDate = Get-Date
 
 #Region     [ Main Code ]
 
+<#
 foreach ($Module in $Modules) {
 
     if ( [bool](Get-InstalledModule -Name $Module -ErrorAction SilentlyContinue) ) {
@@ -102,6 +103,18 @@ foreach ($Module in $Modules) {
 
         Install-Module -Name $Module -Force:$Force
 
+    }
+
+}#>
+
+foreach ($Module in $Modules) {
+
+    try {
+        Get-InstalledModule -Name $Module -ErrorAction Stop
+    }
+    catch {
+        Write-Host "Installing [ $Module ]"
+        Install-Module -Name $Module -Force
     }
 
 }
