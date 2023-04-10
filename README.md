@@ -4,6 +4,11 @@
 [![GitHub Pages](https://github.com/Celerium/_CeleriumDemo/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Celerium/_CeleriumDemo/actions/workflows/pages/pages-build-deployment)
 
 ![PowerShell Gallery Version](https://img.shields.io/powershellgallery/v/RocketCyberAPI?style=for-the-badge)
+![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/RocketCyberAPI?style=for-the-badge)
+![PowerShell Gallery](https://img.shields.io/powershellgallery/p/RocketCyberAPI?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/Celerium/_CeleriumDemo?style=for-the-badge)
+![Website](https://img.shields.io/website?label=Celerium.org&style=for-the-badge&url=https%3A%2F%2Fcelerium.org)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Celerium/_CeleriumDemo?style=for-the-badge)
 
 Just a test repo to better understand Git test
 
